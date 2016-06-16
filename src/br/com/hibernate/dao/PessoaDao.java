@@ -77,7 +77,6 @@ public class PessoaDao {
             sessao = HibernateUtil.getSessionFactory().openSession();
             trans = sessao.beginTransaction();
             Query query = sessao.createQuery("UPDATE Pessoa SET email = :e, telefone = :tel  WHERE nome = :nome ");
-
             query.setParameter("e", pessoa.getEmail());
             query.setParameter("tel", pessoa.getTelefone());
             query.setParameter("nome", pessoa.getNome());

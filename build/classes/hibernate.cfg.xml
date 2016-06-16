@@ -9,6 +9,7 @@
     <property name="hibernate.connection.password">root</property>
     <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.default_schema">hibernate</property>
     <mapping class="br.com.hibernate.modelo.Pessoa"/>
     <mapping class="br.com.hibernate.modelo.Endereco"/>
   </session-factory>
