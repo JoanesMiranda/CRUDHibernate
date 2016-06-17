@@ -8,6 +8,7 @@ package br.com.hibernate.dao;
 import br.com.hibernate.util.HibernateUtil;
 import br.com.hibernate.modelo.Pessoa;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -33,7 +34,7 @@ public class PessoaDao {
 
         } catch (Exception e) {
             trans.rollback();
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"erro ao salvar dados - Pessoa");
         } finally {
             sessao.close();
         }
@@ -49,10 +50,10 @@ public class PessoaDao {
             query.setParameter("nome", pessoa.getNome());
             query.executeUpdate();
             trans.commit();
-
+            JOptionPane.showMessageDialog(null,"Dados apagados com Sucesso");
         } catch (Exception e) {
             trans.rollback();
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"erro ao apagar dados - Pessoa");
         } finally {
             sessao.close();
         }
@@ -86,7 +87,7 @@ public class PessoaDao {
 
         } catch (Exception e) {
             trans.rollback();
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"erro ao atualizar dados - Pessoa");
         } finally {
             sessao.close();
         }

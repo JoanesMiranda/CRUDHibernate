@@ -7,8 +7,8 @@ package br.com.hibernate.dao;
 
 import br.com.hibernate.util.HibernateUtil;
 import br.com.hibernate.modelo.Endereco;
-import br.com.hibernate.modelo.Pessoa;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -30,10 +30,10 @@ public class EnderecoDao {
 
             sessao.save(end);
             trans.commit();
-
+            JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
         } catch (Exception e) {
             trans.rollback();
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "erro ao salvar dados - endereço");
         } finally {
             sessao.close();
         }
@@ -64,10 +64,10 @@ public class EnderecoDao {
 
             query.executeUpdate();
             trans.commit();
-
+            JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
         } catch (Exception e) {
             trans.rollback();
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "erro ao atualizar dados - endereço");
         } finally {
             sessao.close();
         }

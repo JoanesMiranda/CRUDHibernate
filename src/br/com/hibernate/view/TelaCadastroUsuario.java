@@ -136,7 +136,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addComponent(jftTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(lblTelefoneObrigatorio)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +315,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtualizar, btnExcluir, btnPesquisar, btnSair, btnSalvar});
 
-        setSize(new java.awt.Dimension(529, 448));
+        setSize(new java.awt.Dimension(528, 448));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -356,6 +356,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 }
             }
         }
+        
+        
+        
 
         Pessoa pessoa = new Pessoa();
         PessoaDao pessoaDao = new PessoaDao();
@@ -364,7 +367,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         pessoa.setEmail(txtEmail.getText());
         pessoa.setTelefone(jftTelefone.getText());
         pessoaDao.salvarPessoa(pessoa);
-
+        System.out.println("tamanho = "+jftTelefone.getText().length());
         Endereco endereco = new Endereco();
         EnderecoDao enderecoDao = new EnderecoDao();
 
@@ -434,6 +437,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         endereco.setRua(txtRua.getText());
         endereco.setNum(Integer.parseInt(txtNumero.getText()));
         enderecoDao.atualizarEndereco(endereco);
+        limparCampos();
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
